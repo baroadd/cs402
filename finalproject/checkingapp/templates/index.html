@@ -14,8 +14,11 @@
 function myFunction() {
     
     
-    var a = new Function('var xhttp = new XMLHttpRequest();xhttp.onreadystatechange = function() {    if (this.readyState == 4 && this.status == 200) {      document.getElementById("demo").innerHTML = this.responseText;    }  };  xhttp.open("GET","http://localhost:8000/home/?url=demo_get2.asp?fname=Henry", true);  xhttp.send();')  
-    a();
+    var funcName = `{{var1}}`
+    var temp = (`{{var2}}`).replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&#39;/g, "'") 
+    eval(temp.replace(/\.open\("GET",( )*/gi,'.open("GET", ""+').replace(/\.open\("GET",( )*"/gi,'.open("GET", "http://localhost:8000/?url='))
+    eval(funcName)
+    
     
 }
 window.onload = myFunction;
