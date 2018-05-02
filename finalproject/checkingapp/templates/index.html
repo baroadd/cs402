@@ -16,7 +16,7 @@ function myFunction() {
     
     var funcName = `{{var1}}`
     var temp = (`{{var2}}`).replace(/&amp;/g, "&").replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&#39;/g, "'") 
-    eval(temp.replace(/\.open\("GET",( )*/gi,'.open("GET", ""+').replace(/\.open\("GET",( )*"/gi,'.open("GET", "http://localhost:8000/?url='))
+    eval(temp.replace(/\.open\("GET",( )*/gi,'.open("GET", ""+').replace(/\.open\("GET",( )*"/gi,'.open("GET", "http://localhost:8000/home/?url='))
     eval(funcName)
     
     
